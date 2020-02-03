@@ -15,15 +15,15 @@ class NewsRowItem extends StatelessWidget {
       bottom: false,
       minimum: const EdgeInsets.only(
         left: 16,
-        top: 8,
-        bottom: 8,
+        top: 10,
+        bottom: 10,
         right: 8,
       ),
       child: Row(
         children: <Widget>[
           ClipRRect(
               borderRadius: BorderRadius.circular(4),
-              child: newsArticle.urlToImage == null ? Image.asset('images/tree.jpg',width: 72,height: 72,fit: BoxFit.cover) : Image.network(newsArticle.urlToImage, height: 72, width: 72, fit: BoxFit.cover)),
+              child: newsArticle.urlToImage == null ? Image.asset('images/placeholder.png',width: 72,height: 72,fit: BoxFit.cover) : Image.network(newsArticle.urlToImage, height: 72, width: 72, fit: BoxFit.cover)),
 
           Expanded(
             child: Padding(
@@ -35,7 +35,7 @@ class NewsRowItem extends StatelessWidget {
                   Text(newsArticle.title != null
                       ? newsArticle.title
                       : 'default title', style: Styles.newsTitleText,),
-                  const Padding(padding: EdgeInsets.only(top: 8)),
+                  const Padding(padding: EdgeInsets.only(top: 10)),
                   Text(DateFormat('dd-MM-yyyy').format(DateTime.parse(newsArticle.date)),
                     overflow: TextOverflow.ellipsis,
                     style: Styles.subText,

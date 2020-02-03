@@ -38,7 +38,7 @@ class NewsHomePageState extends State<NewsHomePage> {
           navigationBar,
           SliverSafeArea(
             top: false,
-            minimum: const EdgeInsets.only(top: 8),
+            minimum: const EdgeInsets.only(top: 10),
             sliver: SliverList(
                 delegate: SliverChildBuilderDelegate((context, index) {
               if (index < _newsArticles.length) {

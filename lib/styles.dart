@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 abstract class Styles {
   static const TextStyle newsTitleText = TextStyle(
     color: Color.fromRGBO(210, 46, 46, 1),
-    fontSize: 18,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w600,
     fontFamily: "Roboto"
