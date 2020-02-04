@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/model/news-article.dart';
 import 'package:news_app/styles.dart';
 import 'package:intl/intl.dart';
+import 'package:news_app/ui/pages/news_detail_page.dart';
 
 class NewsRowItem extends StatelessWidget {
   const NewsRowItem({this.newsArticle});
@@ -23,8 +24,11 @@ class NewsRowItem extends StatelessWidget {
         children: <Widget>[
           ClipRRect(
               borderRadius: BorderRadius.circular(4),
-              child: newsArticle.urlToImage == null ? Image.asset('images/placeholder.png',width: 72,height: 72,fit: BoxFit.cover) : Image.network(newsArticle.urlToImage, height: 72, width: 72, fit: BoxFit.cover)),
-
+              child: newsArticle.urlToImage == null
+                  ? Image.asset('images/placeholder.png',
+                      width: 72, height: 72, fit: BoxFit.cover)
+                  : Image.network(newsArticle.urlToImage,
+                      height: 72, width: 72, fit: BoxFit.cover)),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -32,11 +36,16 @@ class NewsRowItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(newsArticle.title != null
-                      ? newsArticle.title
-                      : 'default title', style: Styles.newsTitleText,),
+                  Text(
+                    newsArticle.title != null
+                        ? newsArticle.title
+                        : 'default title',
+                    style: Styles.newsTitleText,
+                  ),
                   const Padding(padding: EdgeInsets.only(top: 10)),
-                  Text(DateFormat('dd-MM-yyyy').format(DateTime.parse(newsArticle.date)),
+                  Text(
+                    DateFormat('dd-MM-yyyy')
+                        .format(DateTime.parse(newsArticle.date)),
                     overflow: TextOverflow.ellipsis,
                     style: Styles.subText,
                   ),
@@ -48,20 +57,31 @@ class NewsRowItem extends StatelessWidget {
       ),
     );
 
-    return Column(
-      children: <Widget>[
-        row,
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 100,
-            right: 16,
-          ),
-          child: Container(
-            height: 1,
-            color: Styles.newsRowDivider,
-          ),
-        )
-      ],
+    return GestureDetector(
+      onTap: () {
+        print(newsArticle.title);
+        navigateToDetailPage(context);
+      },
+      child: Column(
+        children: <Widget>[
+          row,
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 100,
+              right: 16,
+            ),
+            child: Container(
+              height: 1,
+              color: Styles.newsRowDivider,
+            ),
+          )
+        ],
+      ),
     );
+  }
+
+  Future navigateToDetailPage(context) async {
+    Navigator.push(
+        context, CupertinoPageRoute(builder: (context) => NewsDetailsPage()));
   }
 }

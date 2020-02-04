@@ -4,9 +4,19 @@ import 'package:flutter/widgets.dart';
 import 'package:news_app/styles.dart';
 
 class NewsDetailsPage extends StatelessWidget {
+
+  final navigationBar = CupertinoSliverNavigationBar(
+    transitionBetweenRoutes: true,
+    backgroundColor: Colors.red,
+  );
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        backgroundColor: Colors.white,
+      ),
+      child: Container(
         color: Colors.white,
         child: SafeArea(
             top: false,
@@ -37,6 +47,8 @@ class NewsDetailsPage extends StatelessWidget {
                       style: Styles.descriptionText,
                     )),
               ],
-            ))));
+            )))) )
+    
+    ;
   }
 }

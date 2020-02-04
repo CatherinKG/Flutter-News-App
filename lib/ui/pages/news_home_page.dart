@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/model/news-article.dart';
+import 'package:news_app/ui/pages/news_detail_page.dart';
 import 'package:news_app/ui/widgets/news_row_item.dart';
 import 'package:news_app/services/webservice.dart';
 // import 'package:news_app/styles.dart';
