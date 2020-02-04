@@ -17,18 +17,11 @@ class NewsRowItem extends StatelessWidget {
       minimum: const EdgeInsets.only(
         left: 16,
         top: 10,
-        bottom: 10,
-        right: 8,
+        bottom: 20,
+        right: 20,
       ),
       child: Row(
         children: <Widget>[
-          ClipRRect(
-              borderRadius: BorderRadius.circular(4),
-              child: newsArticle.urlToImage == null
-                  ? Image.asset('images/placeholder.png',
-                      width: 72, height: 72, fit: BoxFit.cover)
-                  : Image.network(newsArticle.urlToImage,
-                      height: 72, width: 72, fit: BoxFit.cover)),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -42,7 +35,7 @@ class NewsRowItem extends StatelessWidget {
                         : 'default title',
                     style: Styles.newsTitleText,
                   ),
-                  const Padding(padding: EdgeInsets.only(top: 10)),
+                  const Padding(padding: EdgeInsets.only(top: 15)),
                   Text(
                     DateFormat('dd-MM-yyyy')
                         .format(DateTime.parse(newsArticle.date)),
@@ -53,6 +46,16 @@ class NewsRowItem extends StatelessWidget {
               ),
             ),
           ),
+          Container(
+            decoration: BoxDecoration(boxShadow: [Styles.lightimageShadow]),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(2),
+                child: newsArticle.urlToImage == null
+                    ? Image.asset('images/placeholder.png',
+                        width: 160, height: 120, fit: BoxFit.cover)
+                    : Image.network(newsArticle.urlToImage,
+                        height: 120, width: 160, fit: BoxFit.cover)),
+          )
         ],
       ),
     );
@@ -67,11 +70,11 @@ class NewsRowItem extends StatelessWidget {
           row,
           Padding(
             padding: const EdgeInsets.only(
-              left: 100,
-              right: 16,
+              left: 16,
+              right: 100,
             ),
             child: Container(
-              height: 1,
+              height: 0,
               color: Styles.newsRowDivider,
             ),
           )
@@ -82,6 +85,10 @@ class NewsRowItem extends StatelessWidget {
 
   Future navigateToDetailPage(context, news) async {
     Navigator.push(
-        context, CupertinoPageRoute(builder: (context) => NewsDetailsPage(newsArticle: news,)));
+        context,
+        CupertinoPageRoute(
+            builder: (context) => NewsDetailsPage(
+                  newsArticle: news,
+                )));
   }
 }

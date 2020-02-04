@@ -3,10 +3,10 @@ import 'package:flutter/widgets.dart';
 
 abstract class Styles {
   static const TextStyle newsTitleText = TextStyle(
-      color: Color.fromRGBO(210, 46, 46, 1),
+      color: darkGrey,
       fontSize: 16,
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w500,
       fontFamily: "Roboto");
 
   static const TextStyle newsheaderText = TextStyle(
@@ -28,7 +28,7 @@ abstract class Styles {
       fontSize: 18,
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w500,
-      fontFamily: "Roboto",
+      // fontFamily: "Roboto",
       height: 1.5);
 
   static const Color newsRowDivider = Color.fromRGBO(223, 223, 223, 1);
@@ -39,4 +39,10 @@ abstract class Styles {
       spreadRadius: 5,
       blurRadius: 2,
       offset: Offset(0, 4));
+  
+  static const BoxShadow lightimageShadow = BoxShadow(
+      color: Color.fromRGBO(223, 223, 223, 1),
+      spreadRadius: 2,
+      blurRadius: 1,
+      offset: Offset(0, 1));
 }
