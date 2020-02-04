@@ -15,6 +15,11 @@ class NewsDetailsPage extends StatelessWidget {
         navigationBar: CupertinoNavigationBar(
           backgroundColor: Colors.white,
           actionsForegroundColor: Styles.darkGrey,
+          trailing: GestureDetector(
+            onTap: () {
+              print("Tapped");
+            },
+            child: Icon(CupertinoIcons.share_up, color: Styles.darkGrey,)),
         ),
         child: Container(
             color: Colors.white,
