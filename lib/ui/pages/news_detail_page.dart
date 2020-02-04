@@ -3,11 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/styles.dart';
 import 'package:news_app/model/news-article.dart';
+import 'package:share/share.dart';
 
 class NewsDetailsPage extends StatelessWidget {
   const NewsDetailsPage({this.newsArticle});
 
   final NewsArticle newsArticle;
+
+  share(BuildContext context) {
+  final RenderBox box = context.findRenderObject();
+
+  Share.share("hhvghhgghghvghvghv",
+      subject: 'test',
+      sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
+}
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +26,7 @@ class NewsDetailsPage extends StatelessWidget {
           actionsForegroundColor: Styles.darkGrey,
           trailing: GestureDetector(
             onTap: () {
-              print("Tapped");
+              Share.share("${newsArticle.title} - ${newsArticle.descrption}");
             },
             child: Icon(CupertinoIcons.share_up, color: Styles.darkGrey,)),
         ),
