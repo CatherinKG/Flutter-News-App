@@ -32,6 +32,7 @@ abstract class Styles {
       height: 1.5);
 
   static const Color newsRowDivider = Color.fromRGBO(223, 223, 223, 1);
+  static const Color darkGrey = Color.fromRGBO(54, 70, 78, 1);
 
   static const BoxShadow imageShadow = BoxShadow(
       color: Color.fromRGBO(223, 223, 223, 1),

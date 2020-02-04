@@ -60,7 +60,7 @@ class NewsRowItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         print(newsArticle.title);
-        navigateToDetailPage(context);
+        navigateToDetailPage(context, newsArticle);
       },
       child: Column(
         children: <Widget>[
@@ -80,8 +80,8 @@ class NewsRowItem extends StatelessWidget {
     );
   }
 
-  Future navigateToDetailPage(context) async {
+  Future navigateToDetailPage(context, news) async {
     Navigator.push(
-        context, CupertinoPageRoute(builder: (context) => NewsDetailsPage()));
+        context, CupertinoPageRoute(builder: (context) => NewsDetailsPage(newsArticle: news,)));
   }
 }
