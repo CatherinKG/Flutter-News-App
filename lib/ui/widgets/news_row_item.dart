@@ -15,7 +15,7 @@ class NewsRowItem extends StatelessWidget {
       top: false,
       bottom: false,
       minimum: const EdgeInsets.only(
-        left: 16,
+        left: 12,
         top: 10,
         bottom: 20,
         right: 20,
@@ -24,7 +24,7 @@ class NewsRowItem extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,

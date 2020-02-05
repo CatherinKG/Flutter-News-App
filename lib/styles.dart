@@ -6,7 +6,7 @@ abstract class Styles {
       color: darkGrey,
       fontSize: 16,
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w600,
       fontFamily: "Roboto");
 
   static const TextStyle newsheaderText = TextStyle(
